@@ -1,12 +1,15 @@
 name: input-job
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      my_input:
+        description: 'My input value'
+        default: 'hello world'
+        required: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    inputs:
-      my_input:
-        description: "My input value"
-        default: "hello world"
     steps:
       - name: Print input value
         run: echo "Input value: ${{ github.event.inputs.my_input }}"
