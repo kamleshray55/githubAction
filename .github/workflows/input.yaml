@@ -5,12 +5,11 @@ on:
       my_input:
         description: 'My input value'
         default: 'hello world'
-        required: false
+        required: false  # This must be either true or false
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Print input value
-        run: echo "Input value: ${{ inputs.my_input }}"
-
+        run: echo "Input value:${{ github.event.inputs.my_input }}"
